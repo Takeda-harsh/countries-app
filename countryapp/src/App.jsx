@@ -14,7 +14,7 @@ function App() {
       <Header />
       
       <Routes>
-      <Route path="/" element={<React.Fragment><Filter /><Countries /></React.Fragment>} />
+      <Route path="/" element={<React.Fragment><Countries /></React.Fragment>} />
       <Route path={`/countries/:${name}`} element = {<Country />}/>
       </Routes>
       
