@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap');
 
+:root {
+  --dark-bg-color: hsl(207, 26%,17%);
+  --article-color: hsl(209, 23%,22%);
+  --text-color: hsl(0, 0%,100%);
+  --light-mode-text: hsl(200, 15%,8%);
+  --light-mode-input: hsl(0, 0%, 52%);
+  --light-mode-background: hsl(0, 0%,98%);
+}
+
+.link-reset {
+  color: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+.hide{
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,11 +28,49 @@
 img {
   max-width: 100%;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: var(--dark-bg-color);
+  padding: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  border: 2px solid var(--dark-bg-color);
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn:hover{
+  background-color: white;
+  color: var(--dark-bg-color);
+}
+
+.btn-light {
+  background-color: var(--article-color);
+  border: 2px solid var(--article-color);
+}
+
 body {
   font-family: 'Nunito', sans-serif;
   
-  background-color: hsl(207, 26%, 17%);
-  color: white;
+  background-color: var(--dark-bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s;
+}
+
+body.light-mode {
+  background-color: var(--light-mode-background);
+  color: var(--light-mode-text);
 }
 
 
@@ -24,7 +81,15 @@ header {
   justify-content: space-between;
   background-color: hsl(209, 23%, 22%);
   padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+header.light-mode {
+  background-color: var(--light-mode-background);
+  color: var(--light-mode-text);
+}
+
+.theme:hover {cursor: pointer;}
 
 
 /* Filter */
@@ -36,6 +101,8 @@ header {
   padding: 20px;
 
 }
+
+
 
 .filter .form-control {
   width: 100%;
@@ -70,6 +137,23 @@ color: white;
   width: 200px;
   border: none;
   border-radius: 5px;
+}
+
+form input::placeholder {
+  color: var(--text-color);
+}
+
+form input#search.light-mode{
+background-color: var(--light-mode-input);
+}
+select#select.select.light-mode{
+background-color: var(--light-mode-input);
+}
+
+div.details.light-mode {
+  background-color: var(--light-mode-background);
+  color: var(--light-mode-text);
+  transition: background-color 0.4s;
 }
 
 /* Grid */
@@ -127,6 +211,8 @@ color: white;
     margin: 0;
   
   }
+
+
 
   .filter .region-filter {
     width: auto;
