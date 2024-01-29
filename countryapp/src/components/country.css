@@ -2,34 +2,297 @@
     padding: 50px;
 }
 
-.btn-light {
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-bottom: 30px;
-    display: inline-block;
+h2 {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.country article .country-details div{
-    margin: 20px 0;
-}
-
-.country article .country-details div h2 {
-    font-weight: 600;
-    font-size: 30px;
+h3 {
+    font-size: 14px;
     
 }
 
-.country article .country-details div h5 {
-    font-weight: 600;
-    margin: 10px 0;
-    font-size: 16px;
+h5 {
+    margin-bottom: 10px;
 }
 
-.country article .country-details div h5 span {
+span {
     font-weight: 300;
 }
 
-.country article  div h3 {
-    margin: 0 10px;
-    background-color: var(--article-color);
+.first {
+    margin-bottom: 30px;
+}
+
+.border-countries ul {
+    display: flex;
+    margin-left: 0;
+}
+
+.bord {
+    margin-left: 0 !important;
+    margin-right: 10px !important;
+    background-color: hsl(209, 23%, 22%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.269);
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .country {
+        display: flex;
+        align-items: center;
+    }
+
+    .country article {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .country article .flag {
+        width: 600px !important;
+        height: 300px;
+        margin-bottom: 100px;
+    }
+
+    .btn-light {
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+        display: inline-block;
+    }
+
+    .country article .country-details {
+        margin: 20px 0;
+        width: 400px;
+    }
+
+    .country-details {
+        display: flex;
+    }
+
+    .second {
+        padding-top: 30px;
+        margin-left: 140px;
+    }
+
+    .border-countries {
+        display: flex;
+        align-items: center;
+    }
+
+    .border-countries ul {
+        display: flex;
+    }
+
+    .border-countries li a {
+        background-color: hsl(209, 23%, 22%);
+        border-radius: 4px;
+        margin-left: 5px;
+    }
+
+    .light-mode .border-countries li a {
+        background-color: hsl(0, 0%, 98%);
+        color: hsl(200, 15%, 8%);
+        border-radius: 4px;
+        margin-left: 5px;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.269);
+    }
+
+    .country article .country-details div h2 {
+        font-weight: 600;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .country article .country-details div h5 {
+        font-weight: 600;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    .country article .country-details div h5 span {
+        font-weight: 300;
+    }
+
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    h3 {
+        font-size: 18px;
+        
+    }
+
+   
+    .country {
+        display: flex;
+        align-items: center;
+    }
+
+    .country article {
+        width: 100%;
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center !important;
+    }
+
+    .country article .flag {
+        width: 600px !important;
+        height: 300px;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .btn-light {
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+        display: inline-block;
+    }
+
+    .country article .country-details {
+        margin: 20px 0;
+        width: 450px;
+    }
+
+    .country-details {
+        display: flex;
+    }
+
+    .second {
+        padding-top: 30px;
+        margin-left: 140px;
+    }
+
+    .border-countries {
+        display: flex;
+        align-items: center;
+    }
+
+    .border-countries ul {
+        display: flex;
+    }
+
+    .border-countries li a {
+        background-color: hsl(209, 23%, 22%);
+        border-radius: 4px;
+        margin-left: 5px;
+    }
+
+    .light-mode .border-countries li a {
+        background-color: hsl(0, 0%, 98%);
+        color: hsl(200, 15%, 8%);
+        border-radius: 4px;
+        margin-left: 5px;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.269);
+    }
+
+    .country article .country-details div h2 {
+        font-weight: 600;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .country article .country-details div h5 {
+        font-weight: 600;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    .country article .country-details div h5 span {
+        font-weight: 300;
+    }
+
+   
+}
+@media screen and (min-width: 1025px) and (max-width: 2560px) {
+    h3 {
+        font-size: 18px;
+        
+    }
+    .country {
+        display: flex;
+        align-items: center;
+    }
+
+    .country article {
+        width: 100%;
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .country article .flag {
+        width: 600px !important;
+        height: 300px;
+        margin-right: 15px;
+    }
+
+    .btn-light {
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+        display: inline-block;
+    }
+
+    .country article .country-details {
+        margin: 20px 0;
+        width: 700px;
+    }
+
+    .country-details {
+        display: flex;
+    }
+
+    .second {
+        padding-top: 30px;
+        margin-left: 140px;
+    }
+
+    .border-countries {
+        display: flex;
+        align-items: center;
+    }
+
+    .border-countries ul {
+        display: flex;
+    }
+
+    .border-countries li a {
+        background-color: hsl(209, 23%, 22%);
+        border-radius: 4px;
+        margin-left: 5px;
+    }
+
+    .light-mode .border-countries li a {
+        background-color: hsl(0, 0%, 98%);
+        color: hsl(200, 15%, 8%);
+        border-radius: 4px;
+        margin-left: 5px;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.269);
+    }
+
+    .country article .country-details div h2 {
+        font-weight: 600;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .country article .country-details div h5 {
+        font-weight: 600;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    .country article .country-details div h5 span {
+        font-weight: 300;
+    }
+
+    
 }

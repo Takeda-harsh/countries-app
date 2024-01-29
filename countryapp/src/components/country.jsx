@@ -1,87 +1,104 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import '../components/country.css'
 
-function Country() {
+function Country({countryData}) {
   const { name } = useParams();
   const [country, setCountry] = useState({});
 
   useEffect(() => {
-    if (!name) {
+    if (!name || !countryData) {
       return;
     }
 
-    const fetchCountryData = async () => {
-      try {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
-        if (!response.ok) {
-          console.error('Failed to fetch country data:', response.status, response.statusText);
-          return;
-        }
-
-        const countryData = await response.json();
-        setCountry(countryData[0]);
-      } catch (error) {
-        console.error('Error fetching country data:', error);
-      }
+    const fetchCountryData = () => {
+      // Find the country object in the data array based on the countryName
+      const selectedCountry = countryData?.find(
+        (country) =>
+          country?.name?.common.toLowerCase() === name.toLowerCase()
+      );
+ 
+      // Set the found country data in the state
+      setCountry(selectedCountry || {});
+      console.log(selectedCountry)
     };
 
     fetchCountryData();
-  }, [name]);
+  }, [name, countryData]);
 
-  const { cca3 } = country;
-
+  const {population,  capital, region, subregion, languages, currencies, tld, flags, borders } = country;
+ 
   return (
     <>
       <Link to='/' className='btn btn-light'>
         <i className="fas fa-arrow-left"></i> Back
       </Link>
-
+{
       <section className='country'>
-        <article key={cca3}>
+        
+        <article>
           <div className='flag'> 
-            <img src={country.flags?.svg} alt={country.name?.common} />
+            <img src={flags?.svg} alt={country.name?.common} />
           </div>
+        <div className='details-section'>
 
+       
           <div className='country-details'>
-            <div>
+            <div className='first'>
               <h2>{country.name?.common}</h2>
+              
               <h5>
-                Native Name: <span>{country.name?.nativeName?.cat?.common}</span>
+                Native Name: <span>{country.name?.nativeName?.cat?.official}</span>
               </h5>
               <h5>
-                Population: <span>{country.population}</span>
+                Population: <span>{population}</span>
               </h5>
               <h5>
-                Region: <span>{country.region}</span>
+                Region: <span>{region}</span>
               </h5>
               <h5>
-                Sub Region: <span>{country.subregion}</span>
+                Sub Region: <span>{subregion}</span>
               </h5>
               <h5>
-                Capital: <span>{country.capital?.[0]}</span>
+                Capital: <span>{capital?.[0]}</span>
               </h5>
             </div>
 
-            <div>
+            <div className='second'>
               <h5>
-                Top Level Domain: <span>{country.tld?.[0]}</span>
+                Top Level Domain: <span>{tld?.[0]}</span>
               </h5>
               <h5>
-                Currencies: <span>{country.currencies?.EUR?.name}</span>
+                Currencies: <span>{currencies?.EUR?.name}</span>
               </h5>
               <h5>
-                Languages: <span>{country.languages?.cat}</span>
+                Languages: <span>{languages?.cat}</span>
               </h5>
             </div>
           </div>
 
-          <div>
+          <div className='border-countries'>
             <h3>Border Countries:</h3>
-            
+            {borders && borders.length > 0 ? (
+              <ul>
+                {borders.map((border) => (
+                  <li key={border}>
+                    <Link to={`/countries/${border}`} className='btn btn-dark bord'>
+                      {border}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No bordering countries</p>
+            )}
+          </div>
           </div>
         </article>
-      </section>
+      </section>}
+      
     </>
   );
 }

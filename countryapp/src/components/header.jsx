@@ -2,7 +2,7 @@
 import React from 'react'
 
 
-function Header() {
+function Header(theme, onToggleTheme) {
    const toggleTheme = () => {
     const theme = document.querySelector('.theme')
     const header = document.querySelector('header')
@@ -23,15 +23,22 @@ function Header() {
    }
     return (
         <>
-            <header>
-                <div>
-                    <h1>Where in the world?</h1>
-                </div>
-                <div className='theme' onClick={() => toggleTheme()}>
-                    <i className="fas fa-moon"></i> Dark Mode
-                </div>
-                
-            </header>
+           <header>
+        <div>
+          <h1>Where in the world?</h1>
+        </div>
+        <div className='theme' onClick={toggleTheme}>
+          {theme === 'light' ? (
+            <>
+              <i className="fas fa-moon"></i> Dark Mode
+            </>
+          ) : (
+            <>
+              <i className="fas fa-sun"></i> Light Mode
+            </>
+          )}
+        </div>
+      </header>
         </>
     )
 }

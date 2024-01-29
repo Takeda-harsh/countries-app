@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 // Filter.jsx
 import React from 'react';
 
@@ -15,7 +17,12 @@ function Filter({ onSearchChange, onRegionChange }) {
       </form>
 
       <div className='region-filter'>
-        <select name="select" id="select" className="select" onChange={(e) => onRegionChange(e.target.value)}>
+        <select
+          name="select"
+          id="select"
+          className="select"
+          onChange={(e) => onRegionChange(e.target.value)}
+        >
           <option value='All'>Filter by Region</option>
           <option value='Africa'>Africa</option>
           <option value='Americas'>Americas</option>
