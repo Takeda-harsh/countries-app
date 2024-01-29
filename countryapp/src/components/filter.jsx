@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-// Filter.jsx
+
 import React from 'react';
 
 function Filter({ onSearchChange, onRegionChange }) {
